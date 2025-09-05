@@ -38,6 +38,13 @@ public class TicketMachine
             System.out.println("Just right");
         }
     }
+    
+    public int emptyMachine()
+    {
+        int amountAfterEmpty = balance;
+        balance = 0;
+        return amountAfterEmpty;
+    }
 
     /**
      * @Return The price of a ticket.
