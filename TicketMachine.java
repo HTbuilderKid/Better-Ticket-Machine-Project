@@ -83,7 +83,8 @@ public class TicketMachine
      */
     public void printTicket()
     {
-        if(balance >= price) {
+        int amountLeftToPay = price - balance;
+        if(amountLeftToPay <= 0) {
             // Simulate the printing of a ticket.
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
@@ -98,8 +99,7 @@ public class TicketMachine
             balance = balance - price;
         }
         else {
-            System.out.printf("You must insert at least %d more cents.%n",
-                              price - balance);
+            System.out.printf("You must insert at least %d more cents.%n", amountLeftToPay);
         }
     }
 
