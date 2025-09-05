@@ -14,3 +14,5 @@
 
 59. This version of refundBalance() doesn't give the same result as the original because it's from the naive machine (which means that it's broken). In this version, the balance always gets returned back to 0 (balance = 0;) before returning the balance, which means that we will never get a refund since all the money simply went poof!
 
+60. From what I've learned, the return statement immediately exits the method that it's in, which means in this case that it won't be able to run anything after the line with the return statement. So, the balance line will have an error message of "unreachable statement", because it literally is unreachable. It cannot be run.
+
