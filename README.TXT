@@ -16,3 +16,4 @@
 
 60. From what I've learned, the return statement immediately exits the method that it's in, which means in this case that it won't be able to run anything after the line with the return statement. So, the balance line will have an error message of "unreachable statement", because it literally is unreachable. It cannot be run.
 
+61. Yes, this new version can be compiled, but I think the behavior of the method isn't right. The (int price = cost;) basically creates a new local variable, so everything the actual field doesn't get the value that we set. Testing it out confirms that everything is now 0. The printed ticket is 0 cents because that's the default value.
