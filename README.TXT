@@ -6,7 +6,7 @@
 
 53. No, it is not possible for the balance to be set to a negative number after printing a ticket because this line: if(balance >= price) prevents that possibility from happening. The balance must always have enough cents to cover the ticket cost before it does the substraction, or a message of how much money you still need to insert will be printed.
 
-54. 
+54. + addition, - subtraction, * multiplication, / division, % modulus
 
 55. saving = price * discount;
 
