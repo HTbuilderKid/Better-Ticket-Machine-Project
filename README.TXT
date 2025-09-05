@@ -11,3 +11,6 @@
 55. saving = price * discount;
 
 56. mean = total / count;
+
+59. This version of refundBalance() doesn't give the same result as the original because it's from the naive machine (which means that it's broken). In this version, the balance always gets returned back to 0 (balance = 0;) before returning the balance, which means that we will never get a refund since all the money simply went poof!
+
