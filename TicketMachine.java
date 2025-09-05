@@ -17,6 +17,8 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
+    private int discountPrice;
+    private boolean discountSelected;
 
     /**
      * Create a machine that issues tickets of the given price.
@@ -26,6 +28,8 @@ public class TicketMachine
         price = cost;
         balance = 0;
         total = 0;
+        discountPrice = cost / 2;
+        discountSelected = false;
     }
     
     public void affordable(int budget)
@@ -61,6 +65,20 @@ public class TicketMachine
     {
         return balance;
     }
+    
+    public void selectDiscount()
+    {
+        discountSelected = true;
+    }
+    
+    private int getCurrentPrice()
+    {
+        if (discountSelected) {
+            return discountPrice; 
+        } else {
+            return price;
+        }
+    }
 
     /**
      * Receive an amount of money from a customer.
@@ -83,20 +101,23 @@ public class TicketMachine
      */
     public void printTicket()
     {
-        int amountLeftToPay = price - balance;
-        if(amountLeftToPay <= 0) {
+        //if(amountLeftToPay <= 0) {
+        int currentPrice = getCurrentPrice();
+        int amountLeftToPay = currentPrice - balance;
             // Simulate the printing of a ticket.
+        if(amountLeftToPay <= 0) {
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
             System.out.println("# Ticket");
-            System.out.println("# " + price + " cents.");
+            System.out.println("# " + currentPrice + " cents.");
             System.out.println("##################");
             System.out.println();
 
             // Update the total collected with the price.
-            total = total + price;
+            total = total + currentPrice;
             // Reduce the balance by the price.
-            balance = balance - price;
+            balance = balance - currentPrice;
+            discountSelected = false;
         }
         else {
             System.out.printf("You must insert at least %d more cents.%n", amountLeftToPay);
